@@ -14,8 +14,8 @@ class logger(commands.Cog):
         embed.set_thumbnail(url=member.avatar)
         embed.add_field(name=f"is bot ? : " , value=f"{member.bot}",inline= False)
         embed.add_field(name=f"account created at : ", value=f"{member.created_at}", inline= False)
-        await self.bot.get_channel(your channel id here).send(f"{member.mention}")
-        await self.bot.get_channel(your channel id here).send(embed=embed)
+        await self.bot.get_channel(your channel id here).send(f"{member.mention}") #your channel id here
+        await self.bot.get_channel(your channel id here).send(embed=embed)#your channel id here
 
 
 
