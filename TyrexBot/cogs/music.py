@@ -49,7 +49,7 @@ class MusicCog(commands.Cog, name='Music Commands'):
 
     # helper function to search YT and return results in anonymous dictionary
     async def ytQuery(self, ctx):
-        # cut out '-play ' from string
+        # cut out '*play ' from string
         chopIt = ctx.message.content.replace('*play ', '')
         chopIt.strip()
         with YoutubeDL(self.ytOptions) as yt:
@@ -66,8 +66,8 @@ class MusicCog(commands.Cog, name='Music Commands'):
 
     # function to start indexing the playlist into a subarray in self.queue
     async def plistQuery(self, ctx):
-        # cut out '-playlist ' from string
-        chopIt = ctx.message.content.replace('-playlist', '')
+        # cut out '*playlist ' from string
+        chopIt = ctx.message.content.replace('*playlist', '')
         with YoutubeDL(self.ytOptions) as yt:
             try:
                 playlist = yt.extract_info(chopIt, download=False)['entries']
@@ -239,7 +239,7 @@ class MusicCog(commands.Cog, name='Music Commands'):
             await ctx.send('Adding `' + link['title'] + '` to the queue.')
             self.queue.append(link)
 
-    # since we're keeping -playlist and -play separate, mirror the previous function
+    # since we're keeping *playlist and -play separate, mirror the previous function
     async def addPlistToQueue(self, ctx):
         link = await self.playlistQuery(ctx)
         await ctx.send(embed = discord.Embed(description= 'Adding `' + link['title'] + '` to the queue.'))
@@ -432,6 +432,6 @@ class MusicCog(commands.Cog, name='Music Commands'):
                 if not voice.is_connected():
                     break        
      
-# needed to add cog to bot
+
 async def setup(bot):
     await bot.add_cog(MusicCog(bot))
