@@ -15,7 +15,7 @@ class Clear(commands.Cog):
     @commands.command(name='clear' , aliases = ['clr'])
     @commands.has_permissions(manage_messages = True)
     async def clear(self,msg , limit = 100):    
-            await msg.reply(f"`{limit} Messages :` will be deleted in 5 Sec.. <a:loading:1067888489946955776>" , delete_after = 5)
+            await msg.reply(f"`{limit} Messages` will be deleted in 5 Sec..<a:loading:1074482968564871188>" , delete_after = 5)
             time.sleep(5)
             await msg.channel.purge(limit = limit)
     
@@ -25,5 +25,6 @@ class Clear(commands.Cog):
                 await msg.send("**you dont have permission! [permission require is manage message]**")
        
  
+#setting up our cog
 async def setup(bot):
     await bot.add_cog(Clear(bot))
