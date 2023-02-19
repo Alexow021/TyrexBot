@@ -1,4 +1,1 @@
-# TyrexBot
-
-for any questions : discord -> アレックス#2003 
-| discord server : https://discord.gg/BXvHEzHjat
+ <title>before use code install all requirements in the requirements.txt</title>
